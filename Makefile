@@ -12,7 +12,7 @@ all: getdeps build
 
 getdeps:
 	@echo 'Getting Dependancies:'
-	@sudo yum install \
+	@sudo yum --assumeyes install \
 					gcc \
 					gcc-c++ \
 					autoconf \
@@ -34,11 +34,11 @@ build: getdeps
 
 	@echo 'Building:'
 	@cd ./apt
-	autoconf
-	./configure --prefix=/usr/local
-	make -C apt-pkg/
-	make -C apt-inst/
-	make -C methods/
+	@cd ./apt && autoconf
+	@cd ./apt/ && ./configure --prefix=/usr/local
+	@cd ./apt && make -C apt-pkg/
+	@cd ./apt && make -C apt-inst/
+	@cd ./apt && make -C methods/
 
 install: build
 	@echo 'Installing:'
