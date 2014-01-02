@@ -34,10 +34,8 @@ build: getdeps
 
 	@echo 'Building:'
 	@cd ./apt
-
 	autoconf
 	./configure --prefix=/usr/local
-
 	make -C apt-pkg/
 	make -C apt-inst/
 	make -C methods/
@@ -45,7 +43,7 @@ build: getdeps
 install: build
 	@echo 'Installing:'
 
-  @mkdir -p /usr/lib/apt/methods/
+	@mkdir -p /usr/lib/apt/methods/
 	@mkdir -p /usr/include/apt-pkg/
 
 	# Install apt-pkg and apt-inst shared object files
@@ -54,6 +52,6 @@ install: build
 	@cp ./apt/bin/*.so*	/usr/lib64/
 	
 	# Install the development header files 
-  @cp .apt/apt-pkg/*.h /usr/include/apt-pkg/
+	@cp .apt/apt-pkg/*.h /usr/include/apt-pkg/
 
 .PHONY: all clean getdeps
