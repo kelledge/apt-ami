@@ -52,6 +52,6 @@ install: build
 	@cp ./apt/bin/*.so*	/usr/lib64/
 	
 	# Install the development header files 
-	@cp .apt/apt-pkg/*.h /usr/include/apt-pkg/
+	@cp ./apt/apt-pkg/*.h /usr/include/apt-pkg/
 
 .PHONY: all clean getdeps
